@@ -23,13 +23,13 @@ public class CombatChecker {
 
 		final BukkitRunnable runnable = new BukkitRunnable() {
 
-			List<Player> previousPlayers = RPGRegen.getPlayers();
+			List<Player> previousPlayers = Cooldown.getPlayers();
 
 			@Override
 			public void run() {
 
 				//Players in combat
-				final List<Player> currentPlayers = RPGRegen.getPlayers();
+				final List<Player> currentPlayers = Cooldown.getPlayers();
 
 				//We compare the previous players with the current ones
 				for(final Player player : previousPlayers)
