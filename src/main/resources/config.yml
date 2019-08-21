@@ -1,0 +1,92 @@
+              #######################
+###############General Configuration##################
+              #######################
+
+#Set how much health (float number) players are healed every period
+regen amount: 1.0
+
+#Set how often players regen health (in ticks) when out of combat
+#Exemple:
+#period: 40
+#The players would regen every 40 tick (= 2 seconds. 40/20 = 2)
+period: 40
+
+#Set the delay to wait (in seconds) after the last dmg dealt or received before leaving combat
+delay: 10.0
+
+
+              ##################
+###############Advanced Options########################
+              ##################
+
+#If the final regen amount is modified by the player food level
+#If set to true, when a player has 20/20 food level, the player will regen for 100% of the regen amount
+#                when a player has 10/20 food level,                       for 50%
+#Etc...
+#If set to false, players will always regen for the same regen amount (Not advised for a rp/mmorpg server) 
+use-food-level: true
+
+#   !Enable ONLY ONE of the experience-level system!
+#If set to true, players will have a regen bonus based on their experience level
+use-experience-level: false
+
+#If set to true, players will have a regen bonus based on their main class experience
+use-SkillAPI-experience-level: false
+
+#The bonus is applied every 'experience'. For exemple, per-experience: 3 will give a bonus every 3 levels
+per-level: 3
+#The amount of bonus health regen received every 'per-experience'
+regen-bonus: 0.5
+
+#List of all the excluded damage cause. If a damage cause is in this list, it won't put players in combat. The list can be empty
+#https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html for a list of all the damage cause
+excluded-cause:
+  - FALL
+
+#If set to true, the players will only regen health through the plugin's system. No matter the world's
+#natural regeneration gamerule
+replace-minecraft-system: false
+
+#If set to true, the plugin will only work in the world listed below
+per-world-system: false
+
+#If per-world-system is true, RPG Regen will only work in these worlds (even if replace-minecraft-system is true)
+#The world's name must be exactly the same as the world's folder name
+worlds:
+  - world
+  - world_the_end
+  - world_nether
+
+  
+              ###############
+###############Miscellaneous########################
+              ###############
+
+#If set to true, light green particles will spawn on the player when regenerating
+particles: true
+amount: 3
+x-offset: 0.4
+y-offset: 0
+z-offset: 0.4
+  
+  
+              ################
+###############Potion Options########################
+              ################
+
+#Wether or not drinking/throwing a potion will put players in combat
+is-potion-fighting: false
+
+#If set to true, drinking any potion will put players in combat
+any-potion: false
+
+#List of all the potion effects that would put a player in combat if any-potion is set to false
+#You can find a list of all the potion types here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionType.html
+potion-list:
+  - STRENGTH
+  
+#If set to true, throwing any splash potion will put players in combat
+is-splash-fighting: true
+
+#If set to true, throwing any lingering potion will put players in combat
+is-lingering-fighting: true

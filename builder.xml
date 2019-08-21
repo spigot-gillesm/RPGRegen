@@ -1,0 +1,9 @@
+<project name="RPGRegen" default="Build">
+	<!-- Get all classes from target/classes in your plugin code folder, compile 
+		them and place in your test server folder automatically. -->
+	<target name="Build">
+		<jar
+			jarfile="C:\Users\Gilles\Desktop\Minecraft\Minecraft test server Env\1.14.3 Server\plugins\${ant.project.name}.jar"
+			basedir="./target/classes/" includes="**/*"/>
+	</target>
+</project>
