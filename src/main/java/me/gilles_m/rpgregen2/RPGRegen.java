@@ -1,10 +1,6 @@
 package me.gilles_m.rpgregen2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,7 +14,6 @@ import me.gilles_m.rpgregen2.mechanics.EventListener;
 import me.gilles_m.rpgregen2.mechanics.RegenMechanic;
 import me.gilles_m.rpgregen2.mechanics.combatmechanics.CombatChecker;
 import me.gilles_m.rpgregen2.mechanics.combatmechanics.CombatListener;
-import me.gilles_m.rpgregen2.mechanics.combatmechanics.Cooldown;
 
 public class RPGRegen extends JavaPlugin {
 
@@ -74,30 +69,6 @@ public class RPGRegen extends JavaPlugin {
 			return (SkillAPI) plugin;
 		else
 			return null;
-
-	}
-
-	public static boolean isInCombat(Player player) {
-
-		return Cooldown.cache.getIfPresent(player.getUniqueId()) != null;
-
-	}
-
-	public static List<Player> getPlayers() {
-
-		final List<Player> players = new ArrayList<Player>();
-
-		for(final Player player : Bukkit.getOnlinePlayers())
-			if(Cooldown.cache.getIfPresent(player.getUniqueId()) !=  null)
-				players.add(player);
-
-		return players;
-
-	}
-
-	public static void removePlayer(Player player) {
-
-		Cooldown.cache.invalidate(player.getUniqueId());
 
 	}
 
