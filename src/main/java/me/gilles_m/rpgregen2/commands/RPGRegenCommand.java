@@ -42,18 +42,19 @@ public class RPGRegenCommand extends PlayerCommand {
 					//We have to cancel the tasks before creating new instances of CombatChecker / RegenMechanic
 					CombatChecker.getTask().cancel();
 					RegenMechanic.getTask().cancel();
-					//We "destroy" the previous CombatChecker and RegenMechanic from before to set a new one
+
+					//We "destroy" the previous CombatChecker and RegenMechanic to set a new one
 					RPGRegen.setCombatChecker(null);
 					RPGRegen.setCombatChecker(new CombatChecker());
 					RPGRegen.setRegenMechanic(null);
 					RPGRegen.setRegenMechanic(new RegenMechanic());
 
-					tell("&aPlugin reloaded");
+					tell("&aPlugin reloaded.");
 
 				} else
 					tell("&cYou don't have the permission to run this command.");
 			else
-				tell("&cInvalid command. Use /rpgregen to get help");
+				tell("&cInvalid command. Use /rpgregen to get help.");
 
 	}
 
